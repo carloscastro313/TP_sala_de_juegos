@@ -1,0 +1,29 @@
+.divGridPerfil{
+  display: grid;
+  grid-template-columns: 500px 500px;
+  grid-gap: 50px;
+  img{
+    border-radius: 50%;
+  }
+}
+.divGridConteiner{
+  position: fixed;
+  top: 20%;
+  left: 20%;
+}
+.divGrid{
+  display: grid;
+  grid-template-columns:  500px;
+  grid-gap: 2px;
+}
+.contentGame{
+  background: hsla(0, 28%, 95%, 0.24);
+  border-radius: 12px;
+  display: block;
+  width: 90%;
+  height: 85%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

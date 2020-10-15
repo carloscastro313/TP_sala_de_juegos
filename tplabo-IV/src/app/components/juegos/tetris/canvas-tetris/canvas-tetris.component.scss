@@ -1,0 +1,51 @@
+
+.divGrid{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -320px;
+  margin-left: -200px;
+}
+.divGridGrid{
+  display: grid;
+  grid-template-columns: 200px 100px;
+
+}
+.canvasTetris {
+  outline: black 3px solid;
+}
+
+.divGridMenu{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -200px;
+  display: grid;
+  grid-template-columns: 250px 100px;
+  grid-column-gap: 50px;
+}
+
+button{
+  height: 40px;
+  width: 100px;
+  margin-top: 50px;
+}
+
+.animationFadeOut{
+  animation:fadeOut 1s linear;
+}
+
+@keyframes fadeOut{
+  0%{opacity: 100%;};
+  100%{opacity: 0%};
+}
+
+.animationFadeIn{
+  animation:fadeIn 1s linear;
+}
+
+@keyframes fadeIn{
+  0%{opacity: 0%;};
+  100%{opacity: 100%};
+}

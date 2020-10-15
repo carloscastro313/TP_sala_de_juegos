@@ -1,0 +1,32 @@
+<h1 style="margin-left: 10px;">Tateti</h1>
+<mat-divider></mat-divider>
+<div *ngIf="startMenu" [class]="menu">
+  <div class="divGridStart">
+    <h1 style="white-space: pre-line;"> {{ resultado }}</h1>
+    <button mat-button status="danger" (click)="NewGame()" class="buttonMenu">{{btnStart}}</button>
+  </div>
+</div>
+
+
+<div *ngIf="!startMenu" [class]="TTT">
+  <div class="divTTT">
+    <div class="divGrid">
+      <h1>Turno: {{ player }} </h1>
+      <h2 *ngIf="resultado">
+        {{ resultado }}
+      </h2>
+    </div>
+
+    <main>
+        <app-cuadrado-tateti [value]="cuadrado[0]" (click)="MovePlayer(0)"></app-cuadrado-tateti>
+        <app-cuadrado-tateti [value]="cuadrado[1]" (click)="MovePlayer(1)"></app-cuadrado-tateti>
+        <app-cuadrado-tateti [value]="cuadrado[2]" (click)="MovePlayer(2)"></app-cuadrado-tateti>
+        <app-cuadrado-tateti [value]="cuadrado[3]" (click)="MovePlayer(3)"></app-cuadrado-tateti>
+        <app-cuadrado-tateti [value]="cuadrado[4]" (click)="MovePlayer(4)"></app-cuadrado-tateti>
+        <app-cuadrado-tateti [value]="cuadrado[5]" (click)="MovePlayer(5)"></app-cuadrado-tateti>
+        <app-cuadrado-tateti [value]="cuadrado[6]" (click)="MovePlayer(6)"></app-cuadrado-tateti>
+        <app-cuadrado-tateti [value]="cuadrado[7]" (click)="MovePlayer(7)"></app-cuadrado-tateti>
+        <app-cuadrado-tateti [value]="cuadrado[8]" (click)="MovePlayer(8)"></app-cuadrado-tateti>
+    </main>
+  </div>
+</div>

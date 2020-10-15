@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "utn-pps-carloscastro": {
+      "hosting": {
+        "tplabo-IV": [
+          "utn-pps-carloscastro"
+        ]
+      }
+    }
+  }
+}

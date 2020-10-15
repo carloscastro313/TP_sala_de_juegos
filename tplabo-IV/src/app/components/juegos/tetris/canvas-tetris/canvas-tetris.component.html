@@ -1,0 +1,21 @@
+<h1 style="margin-left: 10px;">Tetris</h1>
+<mat-divider></mat-divider>
+
+<div [class]="menu">
+  <div *ngIf="gameOver" class="divGridMenu">
+    <h3 style="white-space: pre-line;">{{resultado}}</h3>
+    <button mat-button (click)="Start()">{{btnStart}}</button>
+  </div>
+</div>
+
+
+<div [class]="tetris">
+  <div *ngIf="!gameOver" class="divGrid">
+    <div class="divGridGrid">
+      <h2 class="uno" *ngIf="logic.puntos != null" style="white-space: pre-line;">Puntos: {{logic.puntos}}</h2>
+      <h2>Nivel: {{nivel}}</h2>
+    </div>
+    <canvas class="canvasTetris" id='board' ></canvas>
+  </div>
+</div>
+

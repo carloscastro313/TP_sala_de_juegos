@@ -1,0 +1,28 @@
+<h1 style="margin-left: 10px;">Agilidad aritmetica</h1>
+<mat-divider></mat-divider>
+<div *ngIf="gameOver" [class]="resumen">
+  <div class="divContainer">
+    <div class="divGrid">
+      <h1>{{puntos}}</h1>
+      <button mat-button class="btn" (click)="Start()" style="margin-top: 30px;">{{btn}}</button>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="!gameOver" [class]="agiArit">
+  <div class="divContainer">
+    <div class="divGrid">
+      <h1>Nivel:{{puntos}}</h1>
+      <h1>Tiempo: {{counter}}</h1>
+      <h1>{{devolucion}}</h1>
+    </div>
+    <main>
+      <h1>{{cuenta}}</h1>
+      <h1>=</h1>
+      <input [(ngModel)]="respuesta" style="font-size: 16px;">
+      <button mat-raised-button color="warn" (click)="Aciertos()">OK</button>
+    </main>
+  </div>
+</div>
+

@@ -1,0 +1,48 @@
+
+main {
+  display: grid;
+  grid-template-columns: 250px 100px 100px 100px;
+  grid-gap: 10px;
+  button{
+    border-radius: 50%;
+    font-size: 16px;
+  }
+}
+
+.divGrid{
+  display: grid;
+  grid-template-columns: 400px 150px 100px;
+  grid-gap: 40px;
+}
+
+
+.divContainer{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -300px;
+  margin-top: -150px;
+}
+
+.btn{
+  height: 50px;
+  width: 100px;
+}
+
+.animationFadeOut{
+  animation:fadeOut 1s linear;
+}
+
+@keyframes fadeOut{
+  0%{opacity: 100%;};
+  100%{opacity: 0%};
+}
+
+.animationFadeIn{
+  animation:fadeIn 1s linear;
+}
+
+@keyframes fadeIn{
+  0%{opacity: 0%;};
+  100%{opacity: 100%};
+}

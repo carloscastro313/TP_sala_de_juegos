@@ -1,0 +1,25 @@
+<h1 style="margin-left: 10px;">Piedra Papel Tijera</h1>
+<mat-divider></mat-divider>
+<div [class]='startMenu'>
+  <div  *ngIf="!start" class="divStart">
+    <h1 *ngIf="resultado!=''" style="white-space: pre-line">{{resultado}}</h1>
+    <button mat-button (click)='startGame()' class="buttonMenu">{{btnStart}}</button>
+  </div>
+</div>
+
+<div [class]='PPT' *ngIf="start">
+  <div class="divResultados">
+    <h1>{{resultado}}</h1>
+    <h1 *ngIf="ronda != 0">Ronda: {{ronda}}</h1>
+    <h1 *ngIf="ronda != 0">Marcador: {{marcador}}</h1>
+  </div>
+  <main>
+    <h1 style="margin-left: 30px;">Jugador</h1>
+    <h1 style="margin-left: 30px;">Maquina</h1>
+    <app-manos *ngFor="let val of mano; let i = index" [value]="val"></app-manos>
+  </main>
+
+  <div class="divGrid" >
+    <button mat-flat-button color="primary" *ngFor="let item of btnMano; let i=index" (click)="Elegir(i)">{{item}}</button>
+  </div>
+</div>

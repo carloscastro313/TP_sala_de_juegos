@@ -1,0 +1,29 @@
+.btnIcon{
+  border-radius: 50%;
+  margin: 4px 2px;
+  width: 50px;
+  height: 50px;
+}
+
+.btnNav{
+  background: rgba(128, 128, 128, 0.446);
+  font-size: 30px;
+  text-align: start;
+  width: 265px;
+  height: 40px;
+}
+
+.about{
+  margin-top: 89%;
+}
+
+mat-divider{
+  margin-bottom: 20px;
+}
+mat-sidenav{
+  background: rgba(218, 232, 158, 0.83);
+  width: 268px;
+}
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}

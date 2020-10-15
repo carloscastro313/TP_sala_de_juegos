@@ -1,0 +1,7 @@
+{
+  "/w/*":{
+    "target":"https://es.wiktionary.org",
+    "secure":false,
+    "changeOrigin":"true"
+  }
+}

@@ -1,0 +1,28 @@
+<h1 style="margin-left: 10px;"> Adivinar numero</h1>
+<mat-divider></mat-divider>
+<div *ngIf="gameOver" [class]="resumen">
+  <div  class="divContainer">
+    <div class="divGrid">
+      <h1>{{resultado}}</h1>
+      <button mat-button (click)="Start()" class="buttonMenu">{{btn}}</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!gameOver" [class]="adivinar">
+  <div  class="divContainer">
+    <div class="divGrid">
+      <h1>{{counter}}</h1>
+    </div>
+    <main>
+      <h1>{{numeroOculto[0]}}</h1>
+      <h1>{{numeroOculto[1]}}</h1>
+      <h1>{{numeroOculto[2]}}</h1>
+      <h1>{{numeroOculto[3]}}</h1>
+    </main>
+    <div class="divGrid">
+      <input [(ngModel)]="ingreso" maxlength="4">
+      <button mat-raised-button (click)="Chequear()">{{btn}}</button>
+    </div>
+  </div>
+</div>

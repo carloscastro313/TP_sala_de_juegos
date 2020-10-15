@@ -1,0 +1,38 @@
+<h1 style="margin-left: 10px;">Anagrama</h1>
+<mat-divider></mat-divider>
+
+
+  <div [class]="startAnagrama" *ngIf="!gameOver">
+    <main>
+      <div class="divGrid2">
+        <h1>{{counter}}</h1>
+        <h1>{{resultado}}</h1>
+      </div>
+      <h1>{{anagrama}}</h1>
+
+      <div class="divGrid2">
+        <mat-form-field>
+          <mat-label>Palabra</mat-label>
+          <input matInput [(ngModel)]="palabra">
+        </mat-form-field>
+        <button mat-button (click)="Check()">Listo</button>
+      </div>
+    </main>
+  </div>
+
+  <div [class]="endGame" *ngIf="gameOver">
+    <div class="divGridMenu">
+      <h1 style="white-space: pre-line;">{{resultado}}</h1>
+      <button mat-button color="primary" (click)="StartGame()" class="buttonMenu">{{start}}</button>
+    </div>
+  </div>
+
+
+<div *ngIf="!gameOver"class="asideLista">
+  <aside>
+    <mat-list role="list" *ngFor="let palabra of listaPalabra">
+      <mat-list-item role="listitem">{{palabra}}</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </aside>
+</div>

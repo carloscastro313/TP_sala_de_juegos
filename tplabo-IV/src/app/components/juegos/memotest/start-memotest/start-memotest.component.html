@@ -1,0 +1,36 @@
+<h1 style="margin-left: 10px;">Memotest</h1>
+<mat-divider></mat-divider>
+<div [class]="memotest">
+  <div *ngIf="startGame" class="divMemotest">
+    <h1>Timer: {{counter}}</h1>
+    <h2>
+      Puntos:{{ resultado }}
+    </h2>
+    <main>
+      <app-cuadrado-memotest [value]="cuadrado[0]" (click)="MovePlayer(0)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[1]" (click)="MovePlayer(1)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[2]" (click)="MovePlayer(2)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[3]" (click)="MovePlayer(3)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[4]" (click)="MovePlayer(4)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[5]" (click)="MovePlayer(5)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[6]" (click)="MovePlayer(6)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[7]" (click)="MovePlayer(7)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[8]" (click)="MovePlayer(8)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[9]" (click)="MovePlayer(9)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[10]" (click)="MovePlayer(10)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[11]" (click)="MovePlayer(11)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[12]" (click)="MovePlayer(12)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[13]" (click)="MovePlayer(13)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[14]" (click)="MovePlayer(14)"></app-cuadrado-memotest>
+      <app-cuadrado-memotest [value]="cuadrado[15]" (click)="MovePlayer(15)"></app-cuadrado-memotest>
+    </main>
+  </div>
+</div>
+<div [class]="resumen">
+  <div *ngIf="!startGame" class="divMemotest">
+    <div class="divGridMenu">
+      <h2>{{resultado}}</h2>
+      <button mat-button  status="danger" (click)="NewGame()" class="buttonMenu">{{empezar}}</button>
+    </div>
+  </div>
+</div>

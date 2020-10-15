@@ -1,0 +1,27 @@
+.divConteinerStartMenu{
+  position: fixed;
+  top: 35%;
+  left: 25%;
+  margin-left: -50px;
+  margin-top: -100px;
+}
+
+.divGridStartMenu{
+  display: grid;
+  grid-template-columns: 200px 200px 250px;
+  grid-gap: 10px;
+}
+
+.divGrid{
+  display: grid;
+  grid-template-columns: 350px;
+  grid-gap: 20px;
+}
+.animationFadeIn{
+  animation:fadeIn 1s linear;
+}
+
+@keyframes fadeIn{
+  0%{opacity: 0%;};
+  100%{opacity: 100%};
+}
