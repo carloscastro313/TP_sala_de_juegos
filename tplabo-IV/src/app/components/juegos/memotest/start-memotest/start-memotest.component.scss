@@ -15,11 +15,24 @@ app-cuadrado-memotest {
   left: 50%;
   margin-left: -256px;
   margin-top: -256px;
+  @media (max-height: 900px) {
+    zoom: 0.87;
+  }
+  @media (max-height: 800px) {
+    zoom: 0.78;
+  }
+  @media (max-height: 768px) {
+    zoom: 0.73;
+  }
+  @media (max-height: 720px) {
+    zoom: 0.68;
+  }
 }
 .divGridMenu{
   display: grid;
   grid-template-columns: 300px 100px ;
   grid-gap: 20px;
+
 }
 .buttonMenu{
   margin-top: 20px;

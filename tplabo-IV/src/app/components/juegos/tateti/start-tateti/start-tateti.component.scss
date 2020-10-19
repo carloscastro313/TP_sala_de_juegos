@@ -22,6 +22,18 @@ app-cuadrado-tateti {
   left: 50%;
   margin-top: -300px;
   margin-left: -300px;
+  @media (max-height: 900px) {
+    zoom: 0.87;
+  }
+  @media (max-height: 800px) {
+    zoom: 0.78;
+  }
+  @media (max-height: 768px) {
+    zoom: 0.73;
+  }
+  @media (max-height: 720px) {
+    zoom: 0.68;
+  }
 }
 
 .divGrid{

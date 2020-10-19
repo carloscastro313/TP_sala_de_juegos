@@ -37,5 +37,28 @@ button{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media (max-height: 720px){
+    width: 300px;
+    height: 450px;
+    .imgLogin{
+      width: auto;
+      height: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+    }
+    button{
+      margin-left: 30px;
+      margin-right: 30px;
+      background: #ffbb00;
+      border-radius: 12px;
+      color: white;
+    }
+    h1{
+      padding-left: 10px;
+      font-size: 25px;
+    }
+  }
 }
 

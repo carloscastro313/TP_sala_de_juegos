@@ -5,6 +5,26 @@
   left: 50%;
   margin-top: -320px;
   margin-left: -200px;
+  @media (max-height: 900px) {
+    margin-top: -300px;
+    margin-left: -200px;
+    zoom: 0.90;
+  }
+  @media (max-height: 800px) {
+    margin-top: -300px;
+    margin-left: -200px;
+    zoom: 0.85;
+  }
+  @media (max-height: 768px) {
+    margin-top: -300px;
+    margin-left: -200px;
+    zoom: 0.80;
+  }
+  @media (max-height: 720px) {
+    margin-top: -300px;
+    margin-left: -200px;
+    zoom: 0.75;
+  }
 }
 .divGridGrid{
   display: grid;
@@ -24,6 +44,22 @@
   display: grid;
   grid-template-columns: 250px 100px;
   grid-column-gap: 50px;
+  @media (max-height: 900px) {
+    margin-top: -240px;
+    margin-left: -200px;
+  }
+  @media (max-height: 800px) {
+    margin-top: -180px;
+    margin-left: -200px;
+  }
+  @media (max-height: 768px) {
+    margin-top: -160px;
+    margin-left: -200px;
+  }
+  @media (max-height: 720px) {
+    margin-top: -140px;
+    margin-left: -200px;
+  }
 }
 
 button{

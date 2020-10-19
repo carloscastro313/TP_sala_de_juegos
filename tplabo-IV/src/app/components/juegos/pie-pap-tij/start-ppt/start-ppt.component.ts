@@ -13,6 +13,7 @@ export class StartPPTComponent implements OnInit {
 
   start : boolean = false;
   btnStart : string = 'Empezar';
+  btnStartDisabled : boolean ;
 
   mano : Array<string>;
   btnMano : Array<string> =["Piedra","Papel","Tijera"];
@@ -29,13 +30,16 @@ export class StartPPTComponent implements OnInit {
 
   ngOnInit(): void {
     this.startMenu = 'animationFadeIn';
+    this.btnStartDisabled = false;
   }
 
   startGame(){
     this.startMenu = 'animationFadeOut';
+    this.btnStartDisabled = true;
     setTimeout(() => {
       this.PPT = 'animationFadeIn';
       this.start = !this.start;
+      this.btnStartDisabled = false;
       this.ronda = 0;
       this.jugador = 0;
       this.maquina = 0;
