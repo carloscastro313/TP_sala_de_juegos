@@ -23,7 +23,7 @@ export class StartAnagramaComponent implements OnInit {
   gameOver : boolean=true;
   listaPalabra : Array<string>;
 
-  constructor(private _diccionarioService : DiccionarioService,private	anagramasLogic : AnagramasLogic) { }
+  constructor(private	anagramasLogic : AnagramasLogic) { }
 
   ngOnInit(): void {
     this.resultado = 'Completa con el anagrama que corresponde en menos de 30.'
@@ -44,30 +44,24 @@ export class StartAnagramaComponent implements OnInit {
 
   }
 
-  async Check(){
+  Check(){
     this.resultado = ' ';
-    this._diccionarioService.GetPalabra(this.palabra).subscribe((aux)=>{
-      console.log(aux);
-      let a = JSON.stringify(aux);
-      console.log(!a.includes('-1'));
-      if(this.anagramasLogic.CheckWord(this.anagrama.toLowerCase(),this.palabra.toLowerCase()) && !a.includes('-1')){
-        this.resultado = 'Correcto';
-        this.aciertos++;
-        this.listaPalabra.push(this.anagrama);
-      }else{
-        this.resultado = 'Incorrecto';
+    if(this.anagramasLogic.CheckWord(this.anagrama.toLowerCase(),this.palabra.toLowerCase())){
+      this.resultado = 'Correcto';
+      this.aciertos++;
+      this.listaPalabra.push(this.anagrama);
+    }else{
+      this.resultado = 'Incorrecto';
+      this.palabra = '';
+      this.fallo++;
+    }
+    setTimeout(() => {
+      if(!this.gameOver){
+        this.anagrama = this.anagramasLogic.GetWord();
         this.palabra = '';
-        this.fallo++;
+        this.resultado = ' ';
       }
-
-      setTimeout(() => {
-        if(!this.gameOver){
-          this.anagrama = this.anagramasLogic.GetWord();
-          this.palabra = '';
-          this.resultado = ' ';
-        }
-      }, 500);
-    });
+    }, 500);
   }
 
   SetTime(){
@@ -82,7 +76,6 @@ export class StartAnagramaComponent implements OnInit {
           this.gameOver = true;
           this.start = 'reintentar';
           this.resultado = 'Aciertos: '+this.aciertos+'\n Fallos: '+this.fallo;
-          console.log(this.gameOver);
         }, 1000);
         clearInterval(this.time);
       }
