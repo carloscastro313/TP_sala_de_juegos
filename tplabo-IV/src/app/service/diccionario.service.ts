@@ -10,6 +10,6 @@ export class DiccionarioService {
   constructor(private httpClient: HttpClient) { }
 
   GetPalabra(palabra : string):Observable<any>{
-    return this.httpClient.get<JSON>('/w/api.php?action=query&format=json&titles='+ palabra);
+    return this.httpClient.get<JSON>('https://es.wiktionary.org/w/api.php?action=query&format=json&titles='+ palabra);
   }
 }
