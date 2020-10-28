@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { Usuario } from 'src/app/clases/usuario';
+import { state } from '@angular/animations';
+import { stat } from 'fs';
 
 @Injectable({
   providedIn: 'root'
@@ -55,7 +57,9 @@ export class LoginService {
 
   public SetSesionActual(correo : string){
     let user = this.TraerUno(correo);
+    user.clave="SuperSecretPassword";
     let aux = JSON.stringify(user);
+
     localStorage.setItem('user', aux);
   }
   public GetSesionActual(){
@@ -63,6 +67,12 @@ export class LoginService {
   }
 
   public SignOutSesionActual(){
-    localStorage.removeItem('user');
+    this.afAuth.signOut().then(()=>{
+      localStorage.removeItem('user');
+    });
+  }
+
+  public IsLog() : any{
+    return this.afAuth.authState;
   }
 }

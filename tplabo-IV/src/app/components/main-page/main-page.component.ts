@@ -19,6 +19,11 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLogin();
+    this.LoginService.IsLog().subscribe(aux=>{
+      if(!(aux && aux.uid)){
+        this.router.navigate(['../']);
+      }
+    })
   }
   events: string[] = [];
   opened: boolean;
@@ -35,6 +40,5 @@ export class MainPageComponent implements OnInit {
 
   LogOut(){
     this.LoginService.SignOutSesionActual();
-    this.checkLogin();
   }
 }

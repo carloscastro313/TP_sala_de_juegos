@@ -1,6 +1,6 @@
 export class Usuario {
   public correo : string;
-  private clave : string;
+  public clave : string;
   public sexo : string;
   public perfil : string;
   public id : number;

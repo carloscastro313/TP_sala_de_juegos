@@ -23,12 +23,14 @@ export class LoginComponent implements OnInit {
   }
 
   Login(){
+    this.error =' ';
     if(this.correo !== ''||this.correo !== ''){
       this.loginService.SignIn(this.correo,this.clave)
       .then(()=>{
         this.loginService.SetSesionActual(this.correo);
         this.router.navigate(['mainPage']);
-      }).catch(()=>{
+      }).catch(aux=>{
+        console.log(aux);
         this.error ='No existe usuario';
       })
     }else{
