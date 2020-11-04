@@ -1,3 +1,6 @@
+import { LoginService } from './../../../../service/loginService/login.service';
+
+import { ScoreService } from './../../../../service/score.service';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CanvasAnimations } from '../clases/canvas-animations';
 import { TetrisLogic } from '../clases/logic/tetris-logic';
@@ -27,7 +30,7 @@ export class CanvasTetrisComponent implements OnInit {
   public logic : TetrisLogic;
   public resultado : string;
 
-  constructor() { }
+  constructor(private ScoreService : ScoreService, private LoginService : LoginService) { }
 
   ngOnInit(): void {
     this.logic = new TetrisLogic();
@@ -98,6 +101,13 @@ export class CanvasTetrisComponent implements OnInit {
         this.tetris = 'animationFadeOut';
         setTimeout(() => {
           this.resultado = 'Puntos : '+this.logic.puntos;
+
+          if(this.logic.puntos != 0){
+            let user = this.LoginService.GetSesionActual()
+            user = (JSON.parse(user)).correo;
+            this.ScoreService.addElement("/tetris/",user,this.logic.puntos);
+          }
+
           this.btnStart = 'Empezar';
           this.gameOver = true;
           this.menu = 'animationFadeIn';

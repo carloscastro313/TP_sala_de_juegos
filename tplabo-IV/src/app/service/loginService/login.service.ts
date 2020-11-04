@@ -63,7 +63,7 @@ export class LoginService {
     localStorage.setItem('user', aux);
   }
   public GetSesionActual(){
-    return  localStorage.getItem('user');
+    return localStorage.getItem('user');
   }
 
   public SignOutSesionActual(){

@@ -1,3 +1,5 @@
+import { LoginService } from './../../../../service/loginService/login.service';
+import { ScoreService } from './../../../../service/score.service';
 import { Component, OnInit } from '@angular/core';
 import { DiccionarioService } from 'src/app/service/diccionario.service';
 import { AnagramasLogic } from '../clases/anagramas-logic';
@@ -23,7 +25,7 @@ export class StartAnagramaComponent implements OnInit {
   gameOver : boolean=true;
   listaPalabra : Array<string>;
 
-  constructor(private	anagramasLogic : AnagramasLogic) { }
+  constructor(private	anagramasLogic : AnagramasLogic, private ScoreService : ScoreService, private LoginService : LoginService) { }
 
   ngOnInit(): void {
     this.resultado = 'Completa con el anagrama que corresponde en menos de 30.'
@@ -75,10 +77,20 @@ export class StartAnagramaComponent implements OnInit {
           this.endGame = 'animationFadeIn';
           this.gameOver = true;
           this.start = 'reintentar';
-          this.resultado = 'Aciertos: '+this.aciertos+'\n Fallos: '+this.fallo;
+          this.UploadScore();
+          this.resultado = 'Aciertos: '+this.aciertos+'\n Fallos: '+this.fallo+'\nPuntos: '+((this.aciertos * 100) - (this.fallo * 100));
         }, 1000);
         clearInterval(this.time);
       }
     },1000);
+  }
+
+  UploadScore(){
+    let puntos = (this.aciertos * 100) - (this.fallo * 100);
+    if( puntos > 0){
+      let user = this.LoginService.GetSesionActual()
+      user = (JSON.parse(user)).correo;
+      this.ScoreService.addElement("/anagramas/",user,puntos);
+    }
   }
 }

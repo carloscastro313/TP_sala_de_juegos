@@ -1,3 +1,5 @@
+import { ScoresComponent } from './components/juegos/scores/scores.component';
+import { SessionGuard } from './session.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { StartMenuComponent } from './components/juegos/start-menu/start-menu.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
@@ -24,7 +26,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'mainPage', component: MainPageComponent,
+  { path: 'mainPage', component: MainPageComponent,canActivate:[SessionGuard],
     children: [
       { path: '', component: StartMenuComponent, pathMatch:'full'},
       { path: 'TaTeTI', component: TatetiComponent,
@@ -58,6 +60,7 @@ const routes: Routes = [
         children: [
         { path: 'startAdivinar', component: StartAdivinarComponent, pathMatch:'full'},
       ] },
+      { path: 'scores', component: ScoresComponent, pathMatch:'full'},
       { path: 'acerca', component: AcercaComponent, pathMatch:'full'},
       { path: '**', redirectTo:'../NotFound'},
     ]

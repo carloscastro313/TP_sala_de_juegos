@@ -12,6 +12,7 @@
       <button mat-button class="btnNav" routerLink='aritmetica/startAritmetica' routerLinkActive="active">Aritmetica</button>
       <button mat-button class="btnNav" routerLink='anagramas/startAnagramas' routerLinkActive="active">Anagramas</button>
       <button mat-button class="btnNav" routerLink='adivinarNumero/startAdivinar' routerLinkActive="active">Adivina el Numero</button>
+      <button mat-button class="btnNav" routerLink='scores' routerLinkActive="active">Scores</button>
     </div>
     <div class="about">
       <button mat-button class="btnNav" routerLink='acerca' routerLinkActive="active">Acerca de</button>
@@ -20,6 +21,7 @@
 
   <mat-sidenav-content >
     <p><button mat-button class="btnIcon" (click)="sidenav.toggle()"><img src="..\..\..\assets\icons\mainPage\menu.svg"></button></p>
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

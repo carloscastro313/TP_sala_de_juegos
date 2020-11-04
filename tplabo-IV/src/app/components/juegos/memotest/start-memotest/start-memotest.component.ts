@@ -1,3 +1,5 @@
+import { LoginService } from './../../../../service/loginService/login.service';
+import { ScoreService } from './../../../../service/score.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -21,7 +23,7 @@ export class StartMemotestComponent implements OnInit {
   counter: number = 45;
   time:any;
 
-  constructor() { }
+  constructor(private ScoreService : ScoreService, private LoginService : LoginService) { }
 
   ngOnInit(): void {
     this.resumen = 'animationFadeIn'
@@ -55,7 +57,7 @@ export class StartMemotestComponent implements OnInit {
 
   calculateWinner() {
     if(!this.cuadrado.includes(null)){
-      this.resultado += this.counter;
+      this.resultado += this.counter * 200;
       this.counter = 1;
     }
   }
@@ -67,7 +69,7 @@ export class StartMemotestComponent implements OnInit {
           this.cuadrado[this.selectedIndex[0]] = null;
           this.cuadrado[this.selectedIndex[1]] = null;
         }else{
-          this.resultado++;
+          this.resultado+= 100;
           this.calculateWinner();
         }
         this.selectedIndex = Array();
@@ -95,6 +97,7 @@ export class StartMemotestComponent implements OnInit {
           this.resumen = 'animationFadeIn';
           this.startGame = false;
           this.empezar = 'reintentar';
+          this.UploadScore();
           this.resultado = 'Puntos: '+this.resultado;
         }, 1000);
         //this.resultado = 'Aciertos: '+this.aciertos+' Fallos: '+this.fallo;
@@ -102,5 +105,13 @@ export class StartMemotestComponent implements OnInit {
         clearInterval(this.checker);
       }
     },1000);
+  }
+
+  UploadScore(){
+    if(this.resultado != 0){
+      let user = this.LoginService.GetSesionActual()
+      user = (JSON.parse(user)).correo;
+      this.ScoreService.addElement("/MemoTest/",user,this.resultado);
+    }
   }
 }

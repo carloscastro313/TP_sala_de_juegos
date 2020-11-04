@@ -1,3 +1,5 @@
+import { ScoreService } from './service/score.service';
+
 import { AnagramasLogic } from './components/juegos/anagrama/clases/anagramas-logic';
 import { LoginService } from 'src/app/service/loginService/login.service';
 import { FormsModule } from '@angular/forms';
@@ -40,6 +42,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -71,6 +74,8 @@ import { StartAdivinarComponent } from './components/juegos/adivinar-numero/star
 import { StartMenuComponent } from './components/juegos/start-menu/start-menu.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ListComponent } from './components/juegos/scores/list/list.component';
+import { ScoresComponent } from './components/juegos/scores/scores.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +103,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     StartMenuComponent,
     AcercaComponent,
     NotFoundComponent,
+    ListComponent,
+    ScoresComponent,
   ],
   imports: [
     BrowserModule,
@@ -147,6 +154,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   providers: [
     LoginService,
     AngularFireDatabase,
+    AngularFirestore,
     AngularFireAuth,
     AngularFireModule,
     AngularFireDatabaseModule,
@@ -154,6 +162,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     AngularFireDatabaseModule,
     DiccionarioService,
     AnagramasLogic,
+    ScoreService
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
