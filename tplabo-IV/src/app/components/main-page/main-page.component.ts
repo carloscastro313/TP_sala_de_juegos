@@ -36,4 +36,8 @@ export class MainPageComponent implements OnInit {
   LogOut(){
     this.LoginService.SignOutSesionActual();
   }
+
+  SideNavBtnAccion(){
+    this.opened = false;
+  }
 }

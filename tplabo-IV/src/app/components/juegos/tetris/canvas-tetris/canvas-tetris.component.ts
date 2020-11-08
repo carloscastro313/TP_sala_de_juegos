@@ -65,7 +65,7 @@ export class CanvasTetrisComponent implements OnInit {
       this.ctx = new CanvasAnimations(aux.getContext('2d'),300,600,this.logic);
       this.ctx.addMono();
       this.loop = setInterval(()=>{
-        this.ctx.GameLoop(this.key);
+        this.ctx.GameLoop(this.key.toLowerCase());
         this.key = null;
       },100);
       this.falling =this.Interval();

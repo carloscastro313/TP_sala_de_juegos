@@ -5,17 +5,17 @@
       <h1 style="margin-left: 5px;">User id:{{userId}}</h1>
       <button mat-button (click)="LogOut()" style="margin-bottom: 10px;margin-left: 5px;">LogOut</button>
       <mat-divider></mat-divider>
-      <button mat-button class="btnNav" routerLink='TaTeTI/startTTT' routerLinkActive="active">Tateti</button>
-      <button mat-button class="btnNav" routerLink='pierdraPapelTijera/startPPT' routerLinkActive="active">Piedra papel tijera</button>
-      <button mat-button class="btnNav" routerLink='tetris/startTetris' routerLinkActive="active">Tetris</button>
-      <button mat-button class="btnNav" routerLink='memotest/startMemotest' routerLinkActive="active">Memotest</button>
-      <button mat-button class="btnNav" routerLink='aritmetica/startAritmetica' routerLinkActive="active">Aritmetica</button>
-      <button mat-button class="btnNav" routerLink='anagramas/startAnagramas' routerLinkActive="active">Anagramas</button>
-      <button mat-button class="btnNav" routerLink='adivinarNumero/startAdivinar' routerLinkActive="active">Adivina el Numero</button>
-      <button mat-button class="btnNav" routerLink='scores' routerLinkActive="active">Scores</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='TaTeTI/startTTT' routerLinkActive="active">Tateti</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='pierdraPapelTijera/startPPT' routerLinkActive="active">Piedra papel tijera</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='tetris/startTetris' routerLinkActive="active">Tetris</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='memotest/startMemotest' routerLinkActive="active">Memotest</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='aritmetica/startAritmetica' routerLinkActive="active">Aritmetica</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='anagramas/startAnagramas' routerLinkActive="active">Anagramas</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='adivinarNumero/startAdivinar' routerLinkActive="active">Adivina el Numero</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='scores' routerLinkActive="active">Scores</button>
     </div>
     <div class="about">
-      <button mat-button class="btnNav" routerLink='acerca' routerLinkActive="active">Acerca de</button>
+      <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='acerca' routerLinkActive="active">Acerca de</button>
     </div>
   </mat-sidenav>
 
