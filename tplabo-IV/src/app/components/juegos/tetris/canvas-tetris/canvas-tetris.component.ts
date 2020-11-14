@@ -42,7 +42,6 @@ export class CanvasTetrisComponent implements OnInit {
 
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    console.log(event);
     this.key = event.key;
   }
 
@@ -65,7 +64,7 @@ export class CanvasTetrisComponent implements OnInit {
       this.ctx = new CanvasAnimations(aux.getContext('2d'),300,600,this.logic);
       this.ctx.addMono();
       this.loop = setInterval(()=>{
-        this.ctx.GameLoop(this.key.toLowerCase());
+        this.ctx.GameLoop(this.key?.toLowerCase());
         this.key = null;
       },100);
       this.falling =this.Interval();
@@ -104,7 +103,7 @@ export class CanvasTetrisComponent implements OnInit {
 
           if(this.logic.puntos != 0){
             let user = this.LoginService.GetSesionActual()
-            user = (JSON.parse(user)).correo;
+            user = (JSON.parse(user))?.correo;
             this.ScoreService.addElement("/tetris/",user,this.logic.puntos);
           }
 
@@ -117,5 +116,11 @@ export class CanvasTetrisComponent implements OnInit {
       }
       this.SpeedChange();
     },this.speed);
+  }
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    clearInterval(this.loop);
+    clearInterval(this.falling);
   }
 }

@@ -3,29 +3,31 @@
     <img src="..\..\..\assets\icons\login\logo.png" class="imgLogin">
 
     <h1 style="margin: 10px; margin-top: 30px;">Login</h1>
+    <form [formGroup]="formLogin">
+      <mat-form-field class="inputLogin">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo">
+        <mat-error *ngIf="formLogin.get('correo').touched && formLogin.get('correo').invalid">Falta correo</mat-error>
+      </mat-form-field>
 
-    <mat-form-field class="inputLogin">
-      <mat-label>Correo</mat-label>
-      <input matInput [(ngModel)]="correo">
-    </mat-form-field>
-
-    <mat-form-field class="inputLogin">
-      <mat-label>Clave</mat-label>
-      <input  matInput type="password" [(ngModel)]="clave">
-    </mat-form-field>
-
-    <span>{{error}}</span>
-    <br>
-    <br>
-    <table>
-      <tr>
-        <td>
-          <button mat-raised-button (click)="Login()">Ingresar</button>
-        </td>
-        <td>
-          <button mat-raised-button (click)="Register()">Registrar</button>
-        </td>
-      </tr>
-    </table>
+      <mat-form-field class="inputLogin">
+        <mat-label>Clave</mat-label>
+        <input  matInput type="password" formControlName="clave">
+        <mat-error *ngIf="formLogin.get('clave').touched && formLogin.get('clave').invalid">Falta clave</mat-error>
+      </mat-form-field>
+      <span style="margin-left: 5px;">{{error}}</span>
+      <br>
+      <br>
+      <table>
+        <tr>
+          <td>
+            <button mat-raised-button (click)="Login()">Ingresar</button>
+          </td>
+          <td>
+            <button mat-raised-button (click)="Register()">Registrar</button>
+          </td>
+        </tr>
+      </table>
+    </form>
   </div>
 </div>

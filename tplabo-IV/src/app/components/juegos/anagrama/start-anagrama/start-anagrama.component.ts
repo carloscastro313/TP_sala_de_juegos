@@ -93,4 +93,10 @@ export class StartAnagramaComponent implements OnInit {
       this.ScoreService.addElement("/anagramas/",user,puntos);
     }
   }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    clearInterval(this.time);
+  }
 }

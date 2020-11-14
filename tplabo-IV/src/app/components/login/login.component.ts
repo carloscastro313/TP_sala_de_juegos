@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/loginService/login.service';
@@ -14,27 +15,35 @@ export class LoginComponent implements OnInit {
   clave : string = '';
   flag : boolean = false;
 
+  formLogin : FormGroup;
+
   constructor(
     public loginService : LoginService,
-    public router : Router) {
-     }
+    public router : Router,
+    private fb : FormBuilder) { }
   ngOnInit(): void {
-
+    this.formLogin = this.fb.group({
+      correo : ['',[
+        Validators.required,
+      ]],
+      clave : ['',[
+        Validators.required,
+      ]]
+    })
   }
 
   Login(){
     this.error =' ';
-    if(this.correo !== ''||this.correo !== ''){
-      this.loginService.SignIn(this.correo,this.clave)
+    if(this.formLogin.valid){
+      let correo = this.formLogin.get('correo').value;
+      let clave = this.formLogin.get('clave').value;
+      this.loginService.SignIn(correo,clave)
       .then(()=>{
-        this.loginService.SetSesionActual(this.correo);
+        this.loginService.SetSesionActual(correo);
         this.router.navigate(['mainPage']);
       }).catch(aux=>{
-        console.log(aux);
         this.error ='No existe usuario';
       })
-    }else{
-      this.error ='Campos vacios';
     }
   }
 

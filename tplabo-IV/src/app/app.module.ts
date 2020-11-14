@@ -43,6 +43,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -76,6 +77,7 @@ import { AcercaComponent } from './components/acerca/acerca.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ListComponent } from './components/juegos/scores/list/list.component';
 import { ScoresComponent } from './components/juegos/scores/scores.component';
+import { UserEmailComponent } from './components/main-page/user-email/user-email.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +107,7 @@ import { ScoresComponent } from './components/juegos/scores/scores.component';
     NotFoundComponent,
     ListComponent,
     ScoresComponent,
+    UserEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -150,6 +153,7 @@ import { ScoresComponent } from './components/juegos/scores/scores.component';
     MatTreeModule,
     AngularFireModule.initializeApp(environment.firebase,"utn-pps-carloscastro"),
     AngularFireDatabaseModule,
+    ReactiveFormsModule
   ],
   providers: [
     LoginService,

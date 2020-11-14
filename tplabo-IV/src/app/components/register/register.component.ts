@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/clases/usuario';
 import { LoginService } from 'src/app/service/loginService/login.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,18 +11,31 @@ import { LoginService } from 'src/app/service/loginService/login.service';
 })
 export class RegisterComponent implements OnInit {
   error : string = '';
-  correo :string = '';
-  clave : string = '';
-  sexo : string = '';
-  perfil : string = '';
-
+  myForm : FormGroup;
 
   constructor(
     private loginService : LoginService,
     private router: Router,
+    private fb : FormBuilder
     ) {
     }
   ngOnInit(): void {
+    this.myForm = this.fb.group({
+      correo : ['',[
+        Validators.required,
+        Validators.email,
+      ]],
+      clave : ['',[
+        Validators.required,
+        Validators.minLength(6)
+      ]],
+      sexo : ['',[
+        Validators.required,
+      ]],
+      perfil : ['',[
+        Validators.required
+      ]]
+    })
   }
 
   Cerrar(){
@@ -35,13 +49,15 @@ export class RegisterComponent implements OnInit {
 
   btn_registrar(){
     this.error = '';
-    let regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    if(this.correo !== '' || this.clave !== '' || this.perfil !== '' || this.sexo !==''){
-      if(regex.exec(this.correo))
-      {
-        this.loginService.AgregarUsuario(this.correo,this.clave,this.sexo,this.perfil)
+
+    if(this.myForm.valid){
+      let correo = this.myForm.get('correo').value;
+      let clave = this.myForm.get('clave').value;
+      let sexo = this.myForm.get('sexo').value;
+      let perfil = this.myForm.get('perfil').value;
+      this.loginService.AgregarUsuario(correo,clave,sexo,perfil)
         .then(()=>{
-          let user = new Usuario(this.correo,this.clave,this.perfil,this.sexo);
+          let user = new Usuario(correo,clave,perfil,sexo);
           this.loginService.guardarUsuario(user);
           console.log("OK!!!");
           this.Cerrar();
@@ -49,11 +65,6 @@ export class RegisterComponent implements OnInit {
           console.log("ERROR");
           this.error = 'Ya existe usuario';
         });
-      }else{
-        this.error = 'correo Invalido';
-      }
-    }else{
-      this.error = 'Falta datos';
     }
   }
 }

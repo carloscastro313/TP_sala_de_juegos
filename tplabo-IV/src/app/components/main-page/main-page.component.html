@@ -2,7 +2,7 @@
 <mat-sidenav-container class="example-container" style="background: transparent;">
   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
     <div class="conteinerNav">
-      <h1 style="margin-left: 5px;">User id:{{userId}}</h1>
+      <app-user-email style="margin-left: 5px;"></app-user-email>
       <button mat-button (click)="LogOut()" style="margin-bottom: 10px;margin-left: 5px;">LogOut</button>
       <mat-divider></mat-divider>
       <button mat-button class="btnNav" (click)="SideNavBtnAccion()" routerLink='TaTeTI/startTTT' routerLinkActive="active">Tateti</button>

@@ -11,37 +11,41 @@
         </td>
       </tr>
     </table>
+    <form [formGroup]="myForm">
+      <mat-form-field class="inputLogin">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo">
+        <mat-error *ngIf="myForm.get('correo').touched && myForm.get('correo').invalid">Correo invalido</mat-error>
+      </mat-form-field>
 
-    <mat-form-field class="inputLogin">
-      <mat-label>Correo</mat-label>
-      <input matInput [(ngModel)]="correo">
-    </mat-form-field>
+      <mat-form-field class="inputLogin">
+        <mat-label>Clave</mat-label>
+        <input matInput type="password" formControlName="clave">
+        <mat-error *ngIf="myForm.get('clave').touched && myForm.get('clave').invalid">Clave invalida</mat-error>
+      </mat-form-field>
 
-    <mat-form-field class="inputLogin">
-      <mat-label>Clave</mat-label>
-      <input matInput type="password" [(ngModel)]="clave">
-    </mat-form-field>
+      <mat-form-field class="inputLogin"appearance="fill" >
+        <mat-label>Sexo</mat-label>
+        <mat-select formControlName="sexo">
+          <mat-option value="f">Femenino</mat-option>
+          <mat-option value="m">Masculino</mat-option>
+        </mat-select>
+        <mat-error *ngIf="myForm.get('sexo').touched && myForm.get('sexo').invalid">Falta elegir</mat-error>
+      </mat-form-field>
 
-    <mat-form-field class="inputLogin"appearance="fill">
-      <mat-label>Sexo</mat-label>
-      <mat-select [(ngModel)]="sexo">
-        <mat-option value="f">Femenino</mat-option>
-        <mat-option value="m">Masculino</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field class="inputLogin"appearance="fill" >
+        <mat-label>Perfil</mat-label>
+        <mat-select formControlName="perfil">
+          <mat-option value="usuario">Usuario</mat-option>
+          <mat-option value="tester">Tester</mat-option>
+          <mat-option value="admin">Admin</mat-option>
+        </mat-select>
+        <mat-error *ngIf="myForm.get('perfil').touched && myForm.get('perfil').invalid">Falta elegir</mat-error>
+      </mat-form-field>
 
-    <mat-form-field class="inputLogin"appearance="fill">
-      <mat-label>Perfil</mat-label>
-      <mat-select [(ngModel)]="perfil">
-        <mat-option value="usuario">Usuario</mat-option>
-        <mat-option value="tester">Tester</mat-option>
-        <mat-option value="admin">Admin</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <button mat-raised-button (click)="btn_registrar()">Registrar</button>
 
-    <span>{{error}}</span>
-
-    <button mat-raised-button (click)="btn_registrar()">Registrar</button>
-
+      <span>{{error}}</span>
+    </form>
   </div>
 </div>

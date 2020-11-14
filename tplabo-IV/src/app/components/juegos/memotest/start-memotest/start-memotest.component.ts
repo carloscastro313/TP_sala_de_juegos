@@ -114,4 +114,11 @@ export class StartMemotestComponent implements OnInit {
       this.ScoreService.addElement("/MemoTest/",user,this.resultado);
     }
   }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    clearInterval(this.time);
+    clearInterval(this.checker);
+  }
 }

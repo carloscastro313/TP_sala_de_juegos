@@ -101,7 +101,5 @@ export class ZFigura extends Monocluster{
 
         break;
     }
-    console.log(this.mono[0].x+"-"+this.mono[0].monoY);
-    console.log(this.mono[0].y+"-"+this.mono[0].monoX);
   }
 }
