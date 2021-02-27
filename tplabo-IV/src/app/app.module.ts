@@ -163,7 +163,6 @@ import { UserEmailComponent } from './components/main-page/user-email/user-email
     AngularFireModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule,
     DiccionarioService,
     AnagramasLogic,
     ScoreService
